@@ -1,16 +1,16 @@
 package org.orz.psol.mapper;
 
-import org.orz.psol.model.User;
+import org.orz.psol.model.Admin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
  * <p>
- *  Mapper 接口
+ * 管理员对象 Mapper 接口
  * </p>
  *
  * @author ${author}
  * @since 2020-12-11
  */
-public interface UserMapper extends BaseMapper<User> {
+public interface AdminMapper extends BaseMapper<Admin> {
 
 }
