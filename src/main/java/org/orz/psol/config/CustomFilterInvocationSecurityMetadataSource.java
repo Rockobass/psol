@@ -25,38 +25,25 @@ public class CustomFilterInvocationSecurityMetadataSource implements FilterInvoc
         String requestUrl = ((FilterInvocation) object).getRequestUrl();
         List<RolePath> rolePaths = rolePathService.list();
         List<Path> paths = new ArrayList<>();
-
-        // 获得路径和权限的映射列表
+        String url = requestUrl.split("[?]")[0];
+        ArrayList<String> roles = new ArrayList<>();
+        boolean found = false;
         for (RolePath rp : rolePaths) {
-            boolean found = false;
-            for (Path path : paths) {
-                if (rp.getUrl().equals(path.getUrl())) {
-                    found = true;
-                    path.addRole(rp.getRole());
-                    break;
-                }
-            }
-            if (!found) {
-                Path p = new Path();
-                p.setUrl(rp.getUrl());
-                List<String> roles = new ArrayList<>();
-                p.setRoles(roles);
-                p.addRole(rp.getRole());
-                paths.add(p);
+
+            if (antPathMatcher.match(rp.getUrl(),url)) {
+                found = true;
+                roles.add(rp.getRole());
             }
         }
 
-        // 返回可以访问请求路径的 角色列表
-        for (Path path : paths) {
-            if (antPathMatcher.match(path.getUrl(), requestUrl)) {
-                List<String> roles = path.getRoles();
-                String[] str = new String[roles.size()];
-                for (int i = 0; i < roles.size(); i++) {
-                    str[i] = roles.get(i);
-                }
-                return SecurityConfig.createList(str);
-            }
+        String[] str = new String[roles.size()];
+        for (int i = 0; i < roles.size(); i++) {
+            str[i] = roles.get(i);
+            System.out.println(str[i]);
         }
+        if (found)
+            return SecurityConfig.createList(str);
+
         return SecurityConfig.createList("ROLE_LOGIN");
     }
 
