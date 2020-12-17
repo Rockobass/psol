@@ -34,7 +34,7 @@ public class ProductChoice implements Serializable {
 
     private String choiceImg;
 
-    private String choice;
+    private String choiceName;
 
 
 }

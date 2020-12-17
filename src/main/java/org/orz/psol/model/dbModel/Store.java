@@ -40,5 +40,7 @@ public class Store implements Serializable {
 
     private Boolean isSpecial;
 
+    private String telephone;
+
 
 }
