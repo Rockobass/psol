@@ -39,7 +39,7 @@ public class FuncTest {
     @Test
     void add() {
         try {
-            User user = new User("2","213","123","123");
+            User user = new User("2","213","123","123",true);
             userMapper.insert(user);
 
         }catch (Exception e) {

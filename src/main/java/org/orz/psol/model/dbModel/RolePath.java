@@ -19,11 +19,9 @@ import lombok.EqualsAndHashCode;
 @ApiModel(value="RolePath对象", description="配置相应权限可访问的路径")
 public class RolePath implements Serializable {
 
-    private static final long serialVersionUID=1L;
-
     private String role;
 
-    private String url;
+    private String path;
 
 
 }

@@ -51,7 +51,7 @@ public class UserService extends ServiceImpl<UserMapper, User> implements UserSe
 
     public boolean add(String id, String username, String password, String role) {
         password = new BCryptPasswordEncoder().encode(password);
-        User user = new User(id,username,password,role);
+        User user = new User(id,username,password,role,true);
         boolean success = false;
         try {
             userMapper.insert(user);

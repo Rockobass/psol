@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // 配置不需要权限的路径
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/css/**", "/js/**", "/index.html", "/img/**", "/fonts/**", "/favicon.ico","/doc.html","/webjars/bycdao-ui/**","/v2/api-docs","/swagger-resources/**","/webjars/**","/swagger-ui.html","/**");
+        web.ignoring().antMatchers("/css/**", "/js/**", "/index.html", "/img/**", "/fonts/**", "/favicon.ico","/doc.html","/webjars/bycdao-ui/**","/v2/api-docs","/swagger-resources/**","/webjars/**","/swagger-ui.html");
     }
 
     @Override

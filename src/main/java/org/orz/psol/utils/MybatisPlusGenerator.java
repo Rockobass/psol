@@ -50,7 +50,7 @@ public class MybatisPlusGenerator {
             配置需要生成代码的表名，多个表用逗号隔开
             strategy.setInclude("table1","table2");
         */
-        strategy.setInclude("product");
+        strategy.setInclude("role_path");
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true);//实体类应用lombok模式
@@ -69,8 +69,8 @@ public class MybatisPlusGenerator {
         // 不生成Controller和xml文件
         tmp.setController("");
         tmp.setXml(null);
-        tmp.setService("");
-        tmp.setServiceImpl("");
+//        tmp.setService("");
+//        tmp.setServiceImpl("");
 //        tmp.setMapper("");
 
         mpg.setTemplate(tmp);

@@ -19,7 +19,7 @@ import java.util.List;
 public class CustomFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
     @Autowired
     RoleService roleService;
-    private AntPathMatcher antPathMatcher = new AntPathMatcher();
+    private final AntPathMatcher antPathMatcher = new AntPathMatcher();
     @Override
     public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
         String requestUrl = ((FilterInvocation) object).getRequestUrl();
@@ -30,7 +30,7 @@ public class CustomFilterInvocationSecurityMetadataSource implements FilterInvoc
         boolean found = false;
         for (RolePath rp : rolePaths) {
 
-            if (antPathMatcher.match(rp.getUrl(),url)) {
+            if (antPathMatcher.match(rp.getPath(),url)) {
                 found = true;
                 roles.add(rp.getRole());
             }

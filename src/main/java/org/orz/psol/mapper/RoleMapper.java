@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface RoleMapper extends Mapper {
 
-    @Select("select role as role, path as url from role_path")
+    @Select("select * from role_path")
     List<RolePath> getAllPaths();
 }

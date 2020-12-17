@@ -23,26 +23,27 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 @Data
 @NoArgsConstructor
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @ApiModel(value="User对象", description="")
 public class User implements Serializable, UserDetails {
 
     private static final long serialVersionUID=1L;
 
-    @NonNull
+//    @NonNull
     @ApiModelProperty("uuid")
     private String id;
 
-    @NonNull
+//    @NonNull
     @ApiModelProperty("用户名")
     private String username;
 
-    @NonNull
+//    @NonNull
     @ApiModelProperty("密码")
     private String password;
 
-    @NonNull
+//    @NonNull
     @ApiModelProperty("角色")
     private String role;
 
