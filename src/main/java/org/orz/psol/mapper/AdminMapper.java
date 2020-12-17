@@ -1,6 +1,6 @@
 package org.orz.psol.mapper;
 
-import org.orz.psol.model.Admin;
+import org.orz.psol.model.dbModel.Admin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

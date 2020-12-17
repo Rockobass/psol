@@ -15,11 +15,11 @@ public class MybatisPlusGenerator {
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath+"/src/main/java");
         gc.setOpen(false);
-        gc.setFileOverride(true);//再次生成文件是否覆盖之前文件
-        gc.setServiceName("%sService");//Service类命名方式，Service为接口类
+        gc.setFileOverride(false);//再次生成文件是否覆盖之前文件
+        gc.setServiceName("%sServiceInterface");//Service类命名方式，Service为接口类
         gc.setMapperName("%sMapper");//Mapper类命名方式
         gc.setXmlName("%sMapper");//Mapper对应xml文件命名方式
-        gc.setServiceImplName("%sServiceImpl");//Service实现类命名方式
+        gc.setServiceImplName("%sService");//Service实现类命名方式
         gc.setControllerName("%sController");//实体类的Controller生成方式，一般不需要，后文配置不生成Controller类
         gc.setDateType(DateType.ONLY_DATE);
         gc.setSwagger2(true);//支持swagger2
@@ -38,9 +38,10 @@ public class MybatisPlusGenerator {
         PackageConfig pc = new PackageConfig();
         pc.setModuleName("psol");
         pc.setParent("org.orz");
-        pc.setEntity("model");//配置实体类包名
-        pc.setMapper("mapper");//配置Mapper类包名
-        pc.setService("service");//配置Service类包名
+        pc.setEntity("model.dbModel");//配置实体类包名
+        pc.setMapper("mapper.dbMapper");//配置Mapper类包名
+        pc.setService("service.interfaces");//配置Service类包名
+        pc.setServiceImpl("dbService");
         pc.setController("controller");//配置Controller类包名
         mpg.setPackageInfo(pc);
 
@@ -49,7 +50,7 @@ public class MybatisPlusGenerator {
             配置需要生成代码的表名，多个表用逗号隔开
             strategy.setInclude("table1","table2");
         */
-        strategy.setInclude("user");
+        strategy.setInclude();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true);//实体类应用lombok模式
@@ -68,6 +69,9 @@ public class MybatisPlusGenerator {
         // 不生成Controller和xml文件
         tmp.setController("");
         tmp.setXml(null);
+        tmp.setService("");
+        tmp.setServiceImpl("");
+        tmp.setMapper("");
 
         mpg.setTemplate(tmp);
         mpg.execute();

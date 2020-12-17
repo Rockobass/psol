@@ -47,7 +47,7 @@ public class User implements Serializable, UserDetails {
     private String role;
 
     @ApiModelProperty(value = "账号是否被激活")
-    private Boolean activate;
+    private Boolean activated;
 
     @Override
     @JsonIgnore
@@ -74,6 +74,6 @@ public class User implements Serializable, UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return activate;
+        return activated;
     }
 }

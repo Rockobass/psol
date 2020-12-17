@@ -4,20 +4,16 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.junit.jupiter.api.Test;
 import org.orz.psol.mapper.UserMapper;
 import org.orz.psol.model.User;
-import org.orz.psol.service.AdminService;
-import org.orz.psol.service.impl.AdminServiceImpl;
-import org.orz.psol.service.impl.UserServiceImpl;
+import org.orz.psol.service.AdminServiceImpl;
+import org.orz.psol.service.UserService;
 import org.orz.psol.utils.UUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @SpringBootTest
 public class FuncTest {
     @Autowired
-    UserServiceImpl userService;
+    UserService userService;
     @Autowired
     AdminServiceImpl adminService;
     @Autowired
@@ -36,7 +32,7 @@ public class FuncTest {
         wrapper.eq("role","ROlE_admin");
         User user = userService.getOne(wrapper);
         if (user != null)
-            user.setActivate(false);
+            user.setActivated(false);
             userService.updateById(user);
     }
 
@@ -52,4 +48,6 @@ public class FuncTest {
 
 
     }
+
+
 }

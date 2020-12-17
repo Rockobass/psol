@@ -1,8 +1,8 @@
 package org.orz.psol.config;
 
 import org.orz.psol.model.Path;
-import org.orz.psol.model.RolePath;
-import org.orz.psol.service.impl.RolePathServiceImpl;
+import org.orz.psol.model.dbModel.RolePath;
+import org.orz.psol.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
@@ -18,12 +18,12 @@ import java.util.List;
 @Component
 public class CustomFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
     @Autowired
-    RolePathServiceImpl rolePathService;
+    RoleService roleService;
     private AntPathMatcher antPathMatcher = new AntPathMatcher();
     @Override
     public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
         String requestUrl = ((FilterInvocation) object).getRequestUrl();
-        List<RolePath> rolePaths = rolePathService.list();
+        List<RolePath> rolePaths = roleService.getAllPaths();
         List<Path> paths = new ArrayList<>();
         String url = requestUrl.split("[?]")[0];
         ArrayList<String> roles = new ArrayList<>();

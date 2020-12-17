@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.junit.jupiter.api.Test;
 import org.orz.psol.mapper.UserMapper;
 import org.orz.psol.model.User;
-import org.orz.psol.service.impl.UserServiceImpl;
+import org.orz.psol.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -19,7 +19,7 @@ class PsolApplicationTests {
     UserMapper userMapper;
 
     @Autowired
-    UserServiceImpl userService;
+    UserService userService;
     /**
      * 使用insert方法， 接收一个对象作为参数
      */
@@ -100,7 +100,7 @@ class PsolApplicationTests {
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         wrapper.eq("activate", false);
         User user = new User();
-        user.setActivate(true);
+        user.setActivated(true);
         userMapper.update(user,wrapper);
     }
 

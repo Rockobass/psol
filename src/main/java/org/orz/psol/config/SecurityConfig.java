@@ -2,7 +2,7 @@ package org.orz.psol.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.orz.psol.model.RespBean;
 import org.orz.psol.model.User;
-import org.orz.psol.service.impl.UserServiceImpl;
+import org.orz.psol.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,7 +32,7 @@ import java.io.PrintWriter;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    UserServiceImpl userService;
+    UserService userService;
     @Autowired
     CustomFilterInvocationSecurityMetadataSource customFilterInvocationSecurityMetadataSource;
     @Autowired
@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // 配置不需要权限的路径
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/css/**", "/js/**", "/index.html", "/img/**", "/fonts/**", "/favicon.ico","/doc.html","/webjars/bycdao-ui/**","/v2/api-docs","/swagger-resources/**","/webjars/**","/swagger-ui.html","/s/admin/**");
+        web.ignoring().antMatchers("/css/**", "/js/**", "/index.html", "/img/**", "/fonts/**", "/favicon.ico","/doc.html","/webjars/bycdao-ui/**","/v2/api-docs","/swagger-resources/**","/webjars/**","/swagger-ui.html","/**");
     }
 
     @Override

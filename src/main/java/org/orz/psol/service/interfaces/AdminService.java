@@ -1,6 +1,6 @@
-package org.orz.psol.service;
+package org.orz.psol.service.interfaces;
 
-import org.orz.psol.model.Admin;
+import org.orz.psol.model.dbModel.Admin;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

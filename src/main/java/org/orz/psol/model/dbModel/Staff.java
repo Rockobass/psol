@@ -1,4 +1,4 @@
-package org.orz.psol.model;
+package org.orz.psol.model.dbModel;
 
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -8,22 +8,26 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 配置相应权限可访问的路径
+ * 
  * </p>
  *
  * @author ${author}
- * @since 2020-12-03
+ * @since 2020-12-17
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="RolePath对象", description="配置相应权限可访问的路径")
-public class RolePath implements Serializable {
+@ApiModel(value="Staff对象", description="")
+public class Staff implements Serializable {
 
     private static final long serialVersionUID=1L;
 
-    private String role;
+      private String id;
 
-    private String url;
+    private String workId;
+
+    private String name;
+
+    private String idNumber;
 
 
 }

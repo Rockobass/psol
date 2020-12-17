@@ -1,4 +1,4 @@
-package org.orz.psol.model;
+package org.orz.psol.model.dbModel;
 
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;

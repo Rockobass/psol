@@ -2,10 +2,10 @@ package org.orz.psol.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.orz.psol.model.Admin;
+import org.orz.psol.model.dbModel.Admin;
 import org.orz.psol.model.RespBean;
-import org.orz.psol.service.impl.AdminServiceImpl;
-import org.orz.psol.service.impl.UserServiceImpl;
+import org.orz.psol.service.AdminServiceImpl;
+import org.orz.psol.service.UserService;
 import org.orz.psol.utils.UUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/s/admin")
 public class AdminController {
     @Autowired
-    UserServiceImpl userService;
+    UserService userService;
     @Autowired
     AdminServiceImpl adminService;
 
