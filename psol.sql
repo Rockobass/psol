@@ -298,11 +298,9 @@ DROP TABLE IF EXISTS `role_path`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8 ;
 CREATE TABLE `role_path` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
   `role` varchar(16) DEFAULT NULL,
-  `path` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `path` varchar(32) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -311,7 +309,6 @@ CREATE TABLE `role_path` (
 
 LOCK TABLES `role_path` WRITE;
 /*!40000 ALTER TABLE `role_path` DISABLE KEYS */;
-INSERT INTO `role_path` VALUES (1,'ROLE_admin','/s/admin/**'),(2,'ROLE_staff','/s/platform/**'),(3,'ROLE_user','/common/**');
 /*!40000 ALTER TABLE `role_path` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -449,7 +446,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('016950a3c749447cb4859a2e4bc55bd8','user','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_user',1),('df9316f60bdd420ea2b8316ec21f3022','admin','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_admin',1),('f8be87307a304a609b0a956cb88b8363','kunkun','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_cxk',1);
+INSERT INTO `user` VALUES ('016950a3c749447cb4859a2e4bc55bd8','user','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_user',1),('111','user1','$2a$10$AJKkLcNCgaGBgPkesREar.eOoJtIaU0Gk9iRghrpeIoOBpw2bQlfO','ROLE_x',1),('df9316f60bdd420ea2b8316ec21f3022','admin','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_admin',1),('f8be87307a304a609b0a956cb88b8363','kunkun','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_cxk',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -462,4 +459,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-17 10:04:22
+-- Dump completed on 2020-12-17 21:49:43
