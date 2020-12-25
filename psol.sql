@@ -287,6 +287,7 @@ CREATE TABLE `puser` (
 
 LOCK TABLES `puser` WRITE;
 /*!40000 ALTER TABLE `puser` DISABLE KEYS */;
+INSERT INTO `puser` VALUES ('016950a3c749447cb4859a2e4bc55bd8','文工团键盘手','ygy','330226200000000005'),('277032c9f3634442941ec06e35ce9931','user4','czar','330226200000000004'),('2ab3477e92794283ae478d6a771985fb','user3','baby','330226200000000003'),('8c214de8602b4a8283db03fce9d97432','user1','琅邪','330226200000000002'),('bc92eacb10fe47ef94e792086a07f4a6','user2','rocko','330226200000000001');
 /*!40000 ALTER TABLE `puser` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -309,6 +310,7 @@ CREATE TABLE `role_path` (
 
 LOCK TABLES `role_path` WRITE;
 /*!40000 ALTER TABLE `role_path` DISABLE KEYS */;
+INSERT INTO `role_path` VALUES ('ROLE_user','/common/**'),('ROLE_admin','/admin/**'),('ROLE_staff','/staff/**');
 /*!40000 ALTER TABLE `role_path` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -391,6 +393,7 @@ CREATE TABLE `store` (
 
 LOCK TABLES `store` WRITE;
 /*!40000 ALTER TABLE `store` DISABLE KEYS */;
+INSERT INTO `store` VALUES ('12bdd16f6db84c4a826','2ab3477e92794283ae478d6a771985fb','user3的店','/static/12bdd16f6db84c4a826/cv.png','浙江杭州','2020-12-25','这是我的店铺呀，欢迎光临',1,0,'13000000003'),('276113bab5e34d72bfd','277032c9f3634442941ec06e35ce9931','user4的店','/static/276113bab5e34d72bfd/nk.png','浙江杭州','2020-12-25','这是我的店铺呀，欢迎光临',1,0,'13000000002'),('740361db126d4668a05','016950a3c749447cb4859a2e4bc55bd8','文工团键盘手的店','/static/740361db126d4668a05/tnf.png','浙江杭州','2020-12-25','这是我的店铺呀，欢迎光临',1,0,'13000000001');
 /*!40000 ALTER TABLE `store` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -446,7 +449,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('016950a3c749447cb4859a2e4bc55bd8','user','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_user',1),('111','user1','$2a$10$AJKkLcNCgaGBgPkesREar.eOoJtIaU0Gk9iRghrpeIoOBpw2bQlfO','ROLE_x',1),('df9316f60bdd420ea2b8316ec21f3022','admin','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_admin',1),('f8be87307a304a609b0a956cb88b8363','kunkun','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_cxk',1);
+INSERT INTO `user` VALUES ('016950a3c749447cb4859a2e4bc55bd8','user','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_user',1),('277032c9f3634442941ec06e35ce9931','user4','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_user',1),('2ab3477e92794283ae478d6a771985fb','user3','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_user',1),('503159f023c64d61a0127262674d898c','staff2','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_staff',1),('8c214de8602b4a8283db03fce9d97432','user1','$2a$10$AJKkLcNCgaGBgPkesREar.eOoJtIaU0Gk9iRghrpeIoOBpw2bQlfO','ROLE_user',1),('bc92eacb10fe47ef94e792086a07f4a6','user2','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_user',1),('df9316f60bdd420ea2b8316ec21f3022','admin','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_admin',1),('e2b8987f2ae44597a88c31f91602dad1','staff1','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_staff',1),('f8be87307a304a609b0a956cb88b8363','kunkun','$2a$10$mU/Q4Wp2XaHkIYgljRrpzuJ5.ZRcgfhijGOsVB8sLzX/eFkigA4lK','ROLE_cxk',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -459,4 +462,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-17 21:49:43
+-- Dump completed on 2020-12-25 21:00:05

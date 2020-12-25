@@ -17,7 +17,8 @@ public class CustomUrlDecisionManager implements AccessDecisionManager {
     public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes) throws AccessDeniedException, InsufficientAuthenticationException {
         for (ConfigAttribute configAttribute : configAttributes) {
             String needRole = configAttribute.getAttribute();
-            if ("ROLE_LOGIN".equals(needRole)) {
+            System.out.println(needRole);
+            if ("ROLE_ANONYMOUS".equals(needRole)) {
                 if (authentication instanceof AnonymousAuthenticationToken) {
                     throw new AccessDeniedException("尚未登录，请登录!");
                 }else {

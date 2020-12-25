@@ -19,4 +19,10 @@ public class UUIDGenerator {
         return s.substring(0,8)+s.substring(9,13)+s.substring(14,18)+s.substring(19,22);
     }
 
+    public static void main(String[] args) {
+        for (int i = 0; i < 5; i++) {
+            System.out.println(getStoreID());
+        }
+    }
+
 }
