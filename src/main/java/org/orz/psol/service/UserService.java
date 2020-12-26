@@ -27,7 +27,10 @@ public class UserService extends ServiceImpl<UserMapper, User> implements UserSe
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return loadByUsername(s);
+        User user = loadByUsername(s);
+        if (user == null)
+            throw new UsernameNotFoundException(null);
+        return user;
     }
 
     public User loadByUsername(String username) {
@@ -61,4 +64,5 @@ public class UserService extends ServiceImpl<UserMapper, User> implements UserSe
         }
         return success;
     }
+
 }

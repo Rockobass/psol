@@ -29,5 +29,7 @@ public class Puser implements Serializable {
 
     private String idNumber;
 
+    private String telephone;
+
 
 }

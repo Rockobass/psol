@@ -1,7 +1,9 @@
 package org.orz.psol.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.orz.psol.mapper.UserMapper;
 import org.orz.psol.model.RespBean;
 import org.orz.psol.model.User;
+import org.orz.psol.model.dbModel.Puser;
 import org.orz.psol.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -34,6 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserService userService;
     @Autowired
+    UserMapper userMapper;
+    @Autowired
     CustomFilterInvocationSecurityMetadataSource customFilterInvocationSecurityMetadataSource;
     @Autowired
     CustomUrlDecisionManager customUrlDecisionManager;
@@ -53,7 +57,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // 配置不需要权限的路径
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/css/**", "/js/**", "/index.html", "/img/**", "/fonts/**", "/favicon.ico","/doc.html","/webjars/bycdao-ui/**","/v2/api-docs","/swagger-resources/**","/webjars/**","/swagger-ui.html","/s/**","/static/**");
+        web.ignoring().antMatchers(
+                "/css/**", "/js/**", "/index.html", "/img/**", "/fonts/**", "/favicon.ico",
+                "/doc.html","/webjars/bycdao-ui/**","/v2/api-docs","/swagger-resources/**",
+                "/webjars/**","/swagger-ui.html","/s/**","/static/**","/register/**"
+        );
     }
 
     @Override
@@ -79,8 +87,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         resp.setContentType("application/json;charset=utf-8");
                         PrintWriter out = resp.getWriter();
                         User user = (User) authentication.getPrincipal();
-                        user.setPassword(null);
-                        RespBean ok = RespBean.ok("登陆成功", user);
+                        String role = user.getRole();
+                        RespBean ok;
+                        if (role.equals("ROLE_user")) {
+                            String id = user.getId();
+                            Puser puser = userMapper.getPuserById(id);
+                            ok = RespBean.ok("登陆成功", puser);
+                        } else {
+                            user.setPassword(null);
+                            ok = RespBean.ok("登陆成功", user);
+                        }
                         String s = new ObjectMapper().writeValueAsString(ok);
                         out.write(s);
                         out.flush();

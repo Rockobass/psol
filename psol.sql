@@ -7,7 +7,7 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
- SET NAMES utf8 ;
+ SET NAMES utf8mb4 ;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `address`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `address` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` varchar(64) DEFAULT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE `address` (
   `detail_address` varchar(64) DEFAULT NULL,
   `is_default` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,14 +48,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `admin` (
   `id` varchar(64) NOT NULL,
   `name` varchar(16) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `admin_uuid_uindex` (`id`),
   CONSTRAINT `admin_user_uuid_fk` FOREIGN KEY (`id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='管理员对象';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='管理员对象';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +74,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `cart_item`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `cart_item` (
   `choice_id` int(11) NOT NULL,
   `store_id` varchar(64) DEFAULT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE `cart_item` (
   `invalid` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`choice_id`),
   UNIQUE KEY `cart_item_choice_id_uindex` (`choice_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,7 +102,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `order`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `order` (
   `id` varchar(64) NOT NULL,
   `user_id` varchar(64) DEFAULT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE `order` (
   `order_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `order_id_uindex` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,14 +132,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `order_item`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `order_item` (
   `order_id` varchar(64) DEFAULT NULL,
   `product_id` varchar(64) DEFAULT NULL,
   `choice_id` int(11) DEFAULT NULL,
   `number` int(11) DEFAULT NULL,
   UNIQUE KEY `order_item_pk` (`order_id`,`choice_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -157,7 +157,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `product` (
   `id` varchar(64) NOT NULL,
   `store_id` varchar(64) NOT NULL,
@@ -173,7 +173,7 @@ CREATE TABLE `product` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `product_id_uindex` (`id`),
   UNIQUE KEY `product_store_id_uindex` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -191,7 +191,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `product_choice`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `product_choice` (
   `choice_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` varchar(64) NOT NULL,
@@ -200,7 +200,7 @@ CREATE TABLE `product_choice` (
   `choice_img` varchar(64) DEFAULT NULL,
   `choice` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`choice_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -218,7 +218,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `product_imgs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `product_imgs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `url` varchar(64) DEFAULT NULL,
@@ -227,7 +227,7 @@ CREATE TABLE `product_imgs` (
   `swipper_order` int(11) DEFAULT NULL,
   `arg_order` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -245,13 +245,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `product_service`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `product_service` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` varchar(64) DEFAULT NULL,
   `service_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -269,16 +269,17 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `puser`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `puser` (
   `id` varchar(64) NOT NULL,
   `nickname` varchar(16) DEFAULT NULL,
   `name` varchar(8) DEFAULT NULL,
   `id_number` varchar(18) DEFAULT NULL,
+  `telephone` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `puser_id_uindex` (`id`),
   CONSTRAINT `puser_user_id_fk` FOREIGN KEY (`id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -287,7 +288,7 @@ CREATE TABLE `puser` (
 
 LOCK TABLES `puser` WRITE;
 /*!40000 ALTER TABLE `puser` DISABLE KEYS */;
-INSERT INTO `puser` VALUES ('016950a3c749447cb4859a2e4bc55bd8','文工团键盘手','ygy','330226200000000005'),('277032c9f3634442941ec06e35ce9931','user4','czar','330226200000000004'),('2ab3477e92794283ae478d6a771985fb','user3','baby','330226200000000003'),('8c214de8602b4a8283db03fce9d97432','user1','琅邪','330226200000000002'),('bc92eacb10fe47ef94e792086a07f4a6','user2','rocko','330226200000000001');
+INSERT INTO `puser` VALUES ('016950a3c749447cb4859a2e4bc55bd8','文工团键盘手','ygy','330226200000000005','13000000001'),('277032c9f3634442941ec06e35ce9931','user4','czar','330226200000000004','13000000002'),('2ab3477e92794283ae478d6a771985fb','user3','baby','330226200000000003','13000000003'),('8c214de8602b4a8283db03fce9d97432','user1','琅邪','330226200000000002','13000000004'),('bc92eacb10fe47ef94e792086a07f4a6','user2','rocko','330226200000000001','13000000005');
 /*!40000 ALTER TABLE `puser` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -297,11 +298,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `role_path`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `role_path` (
   `role` varchar(16) DEFAULT NULL,
   `path` varchar(32) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -320,12 +321,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `service`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `service` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -343,7 +344,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `staff`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `staff` (
   `id` varchar(64) NOT NULL,
   `work_id` varchar(64) DEFAULT NULL,
@@ -352,7 +353,7 @@ CREATE TABLE `staff` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `staff_id_uindex` (`id`),
   CONSTRAINT `staff_user_id_fk` FOREIGN KEY (`id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -370,7 +371,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `store`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `store` (
   `id` varchar(64) NOT NULL,
   `owner_id` varchar(64) DEFAULT NULL,
@@ -384,7 +385,7 @@ CREATE TABLE `store` (
   `telephone` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `store_id_uindex` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -393,7 +394,7 @@ CREATE TABLE `store` (
 
 LOCK TABLES `store` WRITE;
 /*!40000 ALTER TABLE `store` DISABLE KEYS */;
-INSERT INTO `store` VALUES ('12bdd16f6db84c4a826','2ab3477e92794283ae478d6a771985fb','user3的店','/static/12bdd16f6db84c4a826/cv.png','浙江杭州','2020-12-25','这是我的店铺呀，欢迎光临',1,0,'13000000003'),('276113bab5e34d72bfd','277032c9f3634442941ec06e35ce9931','user4的店','/static/276113bab5e34d72bfd/nk.png','浙江杭州','2020-12-25','这是我的店铺呀，欢迎光临',1,0,'13000000002'),('740361db126d4668a05','016950a3c749447cb4859a2e4bc55bd8','文工团键盘手的店','/static/740361db126d4668a05/tnf.png','浙江杭州','2020-12-25','这是我的店铺呀，欢迎光临',1,0,'13000000001');
+INSERT INTO `store` VALUES ('12bdd16f6db84c4a826','2ab3477e92794283ae478d6a771985fb','user3的店','/static/store/12bdd16f6db84c4a826/cv.png','浙江杭州','2020-12-25','这是我的店铺呀，欢迎光临',1,0,'13000000003'),('276113bab5e34d72bfd','277032c9f3634442941ec06e35ce9931','user4的店','/static/276113bab5e34d72bfd/nk.png','浙江杭州','2020-12-25','这是我的店铺呀，欢迎光临',1,0,'13000000002'),('740361db126d4668a05','016950a3c749447cb4859a2e4bc55bd8','文工团键盘手的店','/static/740361db126d4668a05/tnf.png','浙江杭州','2020-12-25','这是我的店铺呀，欢迎光临',1,0,'13000000001');
 /*!40000 ALTER TABLE `store` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -403,7 +404,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `store_img`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `store_img` (
   `store_id` varchar(64) DEFAULT NULL,
   `url` varchar(64) DEFAULT NULL,
@@ -412,7 +413,7 @@ CREATE TABLE `store_img` (
   `is_swipper` tinyint(1) DEFAULT '0',
   `swipper_order` int(11) DEFAULT NULL,
   UNIQUE KEY `store_img_pk` (`store_id`,`url`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -430,7 +431,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `user` (
   `id` varchar(64) NOT NULL,
   `username` varchar(16) NOT NULL,
@@ -440,7 +441,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_username_uindex` (`username`),
   UNIQUE KEY `user_uuid_uindex` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -462,4 +463,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-25 21:00:05
+-- Dump completed on 2020-12-26 22:21:25
