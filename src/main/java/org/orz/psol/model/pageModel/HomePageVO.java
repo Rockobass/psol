@@ -12,5 +12,7 @@ import java.util.List;
 @Data
 public class HomePageVO {
     List<LinkedImg> swipper;
-    List<Display_product> products;
+    List<Display_product> leftGoods;
+    List<Display_product> rightGoods;
+    List<Display_product> Goods;
 }

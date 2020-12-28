@@ -36,5 +36,7 @@ public class ProductImgs implements Serializable {
 
     private Integer argOrder;
 
+    private String argKey;
+
 
 }

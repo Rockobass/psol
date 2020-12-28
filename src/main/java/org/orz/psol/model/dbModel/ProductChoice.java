@@ -23,8 +23,7 @@ public class ProductChoice implements Serializable {
 
     private static final long serialVersionUID=1L;
 
-      @TableId(value = "choice_id", type = IdType.AUTO)
-    private Integer choiceId;
+    private String choiceId;
 
     private String productId;
 

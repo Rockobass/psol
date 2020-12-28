@@ -31,17 +31,21 @@ public class Product implements Serializable {
 
     private String address;
 
-    private Float displayPrice;
+    private Float highPrice;
+
+    private Float lowPrice;
 
     private Float freight;
 
     private String description;
 
-    private String productArgs;
+    private String productParams;
 
     private Integer sales;
 
     private String type;
+
+    private String priceRange;
 
 
 }
