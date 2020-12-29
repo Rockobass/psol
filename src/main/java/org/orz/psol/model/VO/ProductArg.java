@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class ProductArg {
-    String argName;
-    String argValue;
+    String name;
+    String value;
 }

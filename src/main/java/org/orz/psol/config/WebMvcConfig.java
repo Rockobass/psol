@@ -14,7 +14,11 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
      */
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/templates/**","/static/**","/css/**", "/js/**", "/index.html", "/img/**", "/fonts/**", "/favicon.ico","/doc.html","/webjars/bycdao-ui/**","/v2/api-docs","/swagger-resources/**","/webjars/**","/swagger-ui.html").addResourceLocations("classpath:/static/","classpath:/META-INF/resources/","classpath:/resources/","classpath:/public/","classpath:/static/pics/","classpath:/static/pics/products");
+        registry.addResourceHandler("/templates/**","/static/**","/css/**", "/js/**", "/index.html", "/img/**", "/fonts/**", "/favicon.ico","/doc.html","/webjars/bycdao-ui/**","/v2/api-docs","/swagger-resources/**","/webjars/**","/swagger-ui.html")
+                .addResourceLocations(
+                        "classpath:/static/","classpath:/META-INF/resources/",
+                        "classpath:/resources/","classpath:/public/",
+                        "classpath:/static/pics/","classpath:/static/pics/products/");
         super.addResourceHandlers(registry);
     }
 }

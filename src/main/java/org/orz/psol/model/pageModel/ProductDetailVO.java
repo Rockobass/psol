@@ -5,22 +5,24 @@ import org.orz.psol.model.VO.LinkedImg;
 import org.orz.psol.model.VO.NoLinkImg;
 import org.orz.psol.model.VO.ProductArg;
 import org.orz.psol.model.dbModel.ProductChoice;
+import org.orz.psol.model.dbModel.Service;
 
 import java.util.List;
 
 @Data
 public class ProductDetailVO {
+    String id;
     String name;
+    String storeName;
     double displayPrice;
-    double discount;
     int sales;
     String address;
-    double freight;
+    String freight;
     String description;
     String type;
     List<ProductArg> args;
-    List<String> services;
-    List<LinkedImg> swipperImgs;
-    List<NoLinkImg> bodyImgs;
+    List<Service> services;
+    List<String> swipperImgs;
+    List<String> bodyImgs;
     List<ProductChoice> choices;
 }

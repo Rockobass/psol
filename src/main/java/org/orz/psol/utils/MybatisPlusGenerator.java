@@ -15,7 +15,7 @@ public class MybatisPlusGenerator {
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath+"/src/main/java");
         gc.setOpen(false);
-        gc.setFileOverride(false);//再次生成文件是否覆盖之前文件
+        gc.setFileOverride(true);//再次生成文件是否覆盖之前文件
         gc.setServiceName("%sServiceInterface");//Service类命名方式，Service为接口类
         gc.setMapperName("%sMapper");//Mapper类命名方式
         gc.setXmlName("%sMapper");//Mapper对应xml文件命名方式
@@ -50,7 +50,7 @@ public class MybatisPlusGenerator {
             配置需要生成代码的表名，多个表用逗号隔开
             strategy.setInclude("table1","table2");
         */
-        strategy.setInclude("role_path");
+        strategy.setInclude("store");
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true);//实体类应用lombok模式
@@ -69,8 +69,8 @@ public class MybatisPlusGenerator {
         // 不生成Controller和xml文件
         tmp.setController("");
         tmp.setXml(null);
-//        tmp.setService("");
-//        tmp.setServiceImpl("");
+        tmp.setService("");
+        tmp.setServiceImpl("");
 //        tmp.setMapper("");
 
         mpg.setTemplate(tmp);

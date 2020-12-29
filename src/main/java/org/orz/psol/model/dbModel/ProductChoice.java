@@ -1,7 +1,5 @@
 package org.orz.psol.model.dbModel;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -14,7 +12,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author ${author}
- * @since 2020-12-17
+ * @since 2020-12-28
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -23,7 +21,7 @@ public class ProductChoice implements Serializable {
 
     private static final long serialVersionUID=1L;
 
-    private String choiceId;
+      private String choiceId;
 
     private String productId;
 
@@ -33,7 +31,7 @@ public class ProductChoice implements Serializable {
 
     private String choiceImg;
 
-    private String choiceName;
+    private String choice;
 
 
 }

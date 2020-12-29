@@ -1,7 +1,7 @@
 package org.orz.psol.model.pageModel;
 
 import lombok.Data;
-import org.orz.psol.model.VO.Display_product;
+import org.orz.psol.model.VO.DisplayProduct;
 import org.orz.psol.model.VO.LinkedImg;
 
 import java.util.List;
@@ -16,6 +16,6 @@ public class StoreVO {
     // 广告图片，可以跳转到商品详情页
     List<LinkedImg> ads;
     List<LinkedImg> swipperImgs;
-    List<Display_product> products;
+    List<DisplayProduct> products;
 
 }

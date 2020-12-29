@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author ${author}
- * @since 2020-12-17
+ * @since 2020-12-28
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -35,8 +35,6 @@ public class Product implements Serializable {
 
     private Float lowPrice;
 
-    private Float freight;
-
     private String description;
 
     private String productParams;
@@ -44,6 +42,8 @@ public class Product implements Serializable {
     private Integer sales;
 
     private String type;
+
+    private String freight;
 
     private String priceRange;
 

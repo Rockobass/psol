@@ -5,10 +5,11 @@ import lombok.Data;
 
 @ApiModel("展示商品的数据")
 @Data
-public class Display_product {
-    String product_id;
-    String cover_img;
+public class DisplayProduct {
+    String id;
+    String coverImg;
     String name;
-    String display_price;
+    String highPrice;
+    String lowPrice;
     int sales;
 }
