@@ -30,6 +30,8 @@ public class HomePageService {
     ServiceMapper serviceMapper;
     @Autowired
     ProductChoiceMapper choiceMapper;
+    @Autowired
+    CartItemService cartItemService;
 
     public List<Product> loadProduct(String type, int current) {
         int size = 20;
@@ -73,15 +75,19 @@ public class HomePageService {
         Product p = productMapper.getProductById(id);
         productDetail.setId(id);
         productDetail.setName(p.getName());
-        productDetail.setStoreName(productMapper.getStoreNameByProdId(id));
+        productDetail.setCoverImg(p.getCoverImg());
+        productDetail.setStoreId(p.getStoreId());
+        productDetail.setStoreName(productMapper.getStoreNameByStoreId(p.getStoreId()));
         productDetail.setDisplayPrice(p.getLowPrice());
         productDetail.setSales(p.getSales());
         productDetail.setAddress(p.getAddress());
+        productDetail.setPriceRange(p.getPriceRange());
         productDetail.setFreight(p.getFreight());
         productDetail.setDescription(p.getDescription());
         productDetail.setType(p.getType());
         List<ProductArg> args = new ArrayList<>();
-        String[] params = p.getProductParams().split("\\$");
+        String[] params = new String[0];
+        try {params = p.getProductParams().split("\\$");}catch (Exception e){}
         for (int i = 1; i < params.length; i++) {
             String[] str = params[i].split(":");
             ProductArg arg = new ProductArg();

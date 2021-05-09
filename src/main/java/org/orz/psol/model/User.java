@@ -31,19 +31,15 @@ public class User implements Serializable, UserDetails {
 
     private static final long serialVersionUID=1L;
 
-//    @NonNull
     @ApiModelProperty("uuid")
     private String id;
 
-//    @NonNull
     @ApiModelProperty("用户名")
     private String username;
 
-//    @NonNull
     @ApiModelProperty("密码")
     private String password;
 
-//    @NonNull
     @ApiModelProperty("角色")
     private String role;
 

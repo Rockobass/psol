@@ -29,6 +29,7 @@ import java.sql.Date;
 import java.util.*;
 import java.util.List;
 
+@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @SpringBootTest
 public class SavaPic {
     @Autowired
@@ -245,6 +246,13 @@ public class SavaPic {
             System.out.println("value:"+str[1]);
 
         }
+
+    }
+
+    @Test
+    void t6() {
+//        System.out.println(new Date(System.currentTimeMillis()));
+        System.out.println(new java.util.Date(System.currentTimeMillis()));
     }
 
 

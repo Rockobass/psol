@@ -22,8 +22,9 @@ public interface ProductMapper extends BaseMapper<Product> {
     @Select("select * from product where id='${id}'")
     Product getProductById(String id);
 
-    @Select("select name from store where owner_id='${pid}'")
-    String getStoreNameByProdId(String pid);
+    @Select("select name from store where id='${pid}'")
+    String getStoreNameByStoreId(String pid);
+
 
     @Select("select service_id from product_service where product_id='${id}'")
     int[] getServiceIdByPID(String id);

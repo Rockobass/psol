@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author ${author}
- * @since 2020-12-17
+ * @since 2021-01-06
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -25,7 +25,7 @@ public class OrderItem implements Serializable {
 
     private String productId;
 
-    private Integer choiceId;
+    private String choiceId;
 
     private Integer number;
 

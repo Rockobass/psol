@@ -1,5 +1,6 @@
 package org.orz.psol.mapper.dbMapper;
 
+import org.apache.ibatis.annotations.Update;
 import org.orz.psol.model.dbModel.ProductChoice;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 

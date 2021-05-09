@@ -8,5 +8,7 @@ import java.util.List;
 public class CartStore {
     String storeName;
     String storeId;
+    boolean selected;
+    boolean special;
     List<CartProduct> products;
 }

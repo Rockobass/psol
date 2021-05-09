@@ -10,11 +10,10 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
+// https://xiaoym.gitee.io/knife4j/documentation/get_start.html
 @Configuration
 @EnableSwagger2
 @EnableSwaggerBootstrapUI
-// https://xiaoym.gitee.io/knife4j/documentation/get_start.html
 public class SwaggerConfig {
     @Bean
     public Docket createRestApi() {

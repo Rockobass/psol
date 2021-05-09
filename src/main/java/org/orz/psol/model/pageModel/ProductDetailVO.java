@@ -14,12 +14,15 @@ public class ProductDetailVO {
     String id;
     String name;
     String storeName;
+    String storeId;
     double displayPrice;
     int sales;
     String address;
     String freight;
     String description;
     String type;
+    String priceRange;
+    String coverImg;
     List<ProductArg> args;
     List<Service> services;
     List<String> swipperImgs;

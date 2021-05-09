@@ -28,7 +28,7 @@ public class MybatisPlusGenerator {
 
         DataSourceConfig dsc = new DataSourceConfig();
         // 数据库配置,修改成自己的url，用户名密码
-        dsc.setUrl("jdbc:mysql://localhost:3306/psol?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC");
+        dsc.setUrl("jdbc:mysql://121.196.103.192:3306/psol?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");
@@ -50,7 +50,7 @@ public class MybatisPlusGenerator {
             配置需要生成代码的表名，多个表用逗号隔开
             strategy.setInclude("table1","table2");
         */
-        strategy.setInclude("store");
+        strategy.setInclude("order");
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true);//实体类应用lombok模式

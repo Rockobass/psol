@@ -10,6 +10,7 @@ public class OrderProduct {
     String name;
     int number;
     double freight;
+    String coverImg;
     ProductChoice choice;
     List<String> services;
 }

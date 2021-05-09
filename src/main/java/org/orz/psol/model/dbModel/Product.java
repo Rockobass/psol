@@ -47,5 +47,7 @@ public class Product implements Serializable {
 
     private String priceRange;
 
+    private boolean invalid;
+
 
 }

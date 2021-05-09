@@ -5,9 +5,12 @@ import lombok.Data;
 @Data
 public class CartProduct {
     String productId;
-    String name;
-    String cover_img;
+    String choiceId;
+    String coverImg;
     double price;
     int number;
+    String productName;
     String choiceName;
+    int storage;
+    boolean selected;
 }
